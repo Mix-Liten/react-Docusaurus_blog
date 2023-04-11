@@ -1,0 +1,297 @@
+---
+title: "[note] Docusaurus 筆記"
+tags: [Docusaurus]
+description: common use docusaurus syntax & tips
+---
+
+> [v2.4.0](https://docusaurus.io/)
+
+## Syntax
+> [Markdown Features](https://docusaurus.io/docs/markdown-features)
+
+### TOC (Table Of Contents, 目錄)
+
+> 預設使用標題標籤 `##`(h2) 和 `###`(h3) 會自動生成文章目錄
+
+### Quotes
+````md
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+````
+> Easy to maintain open source documentation websites.
+>
+> — Docusaurus
+
+### Details
+````md
+### Details element example
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+````
+Demo：
+
+<details>
+  <summary>Toggle me!</summary>
+  <div>
+    <div>This is the detailed content</div>
+    <br/>
+    <details>
+      <summary>
+        Nested toggle! Some surprise inside...
+      </summary>
+      <div>😲😲😲😲😲</div>
+    </details>
+  </div>
+</details>
+
+### Admonitions
+
+> 更進階的用法看[官方文件](https://docusaurus.io/docs/next/markdown-features/admonitions), 可搭配 component 客製
+
+預設五種醒目的標示, `[note, tip, info, caution, danger]`
+
+- Demo：
+  ```
+  :::note
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::tip
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::info
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::caution
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::danger
+  Some **content** with _Markdown_ `syntax`.
+  :::
+  ```
+
+  :::note
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::tip
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::info
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::caution
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+  :::danger
+  Some **content** with _Markdown_ `syntax`.
+  :::
+
+- 客製化用法：
+  - 自訂標題
+    ```
+    :::tip 注意事項
+    Some **content** with _Markdown_ `syntax`.
+    :::
+    ```
+    :::tip 注意事項
+    Some **content** with _Markdown_ `syntax`.
+    :::
+
+  - Nested 嵌套多層
+    ```
+    :::::info Parent
+    Parent content
+    ::::danger Child
+    Child content
+    :::tip Deep Child
+    Deep child content
+    :::
+    ::::
+    :::::
+    ```
+    :::::info Parent
+    Parent content
+    ::::danger Child
+    Child content
+    :::tip Deep Child
+    Deep child content
+    :::
+    ::::
+    :::::
+
+### Code blocks
+
+> 更進階的用法看[官方文件](https://docusaurus.io/docs/markdown-features/code-blocks), 可使用 magicComments 設定特殊樣式
+
+- 自訂標題
+  ````md
+  ```jsx title="/src/components/HelloCodeTitle.js"
+  function HelloCodeTitle(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+  ```
+  ````
+  ```jsx title="/src/components/HelloCodeTitle.js"
+  function HelloCodeTitle(props) {
+    return <h1>Hello, {props.name}</h1>;
+  }
+  ```
+
+- Highlighting with comments
+  - 高亮下一行, `// highlight-next-line`
+    ````md
+    ```js
+    function HighlightSomeText(highlight) {
+      if (highlight) {
+        // highlight-next-line
+        return 'This text is highlighted!';
+      }
+
+      return 'Nothing highlighted';
+    }
+    ```
+    ````
+    ```js
+    function HighlightSomeText(highlight) {
+      if (highlight) {
+        // highlight-next-line
+        return 'This text is highlighted!';
+      }
+
+      return 'Nothing highlighted';
+    }
+    ```
+  - 高亮區間, `// highlight-start` & `// highlight-end`
+    ````md
+    ```js
+    function HighlightMoreText(highlight) {
+      // highlight-start
+      if (highlight) {
+        return 'This range is highlighted!';
+      }
+      // highlight-end
+
+      return 'Nothing highlighted';
+    }
+    ```
+    ````
+    ```js
+    function HighlightMoreText(highlight) {
+      // highlight-start
+      if (highlight) {
+        return 'This range is highlighted!';
+      }
+      // highlight-end
+
+      return 'Nothing highlighted';
+    }
+    ```
+
+- Display line number & Highlighting
+  ````md
+  ```jsx {1,4-6,11} showLineNumbers
+  import React from 'react';
+
+  function MyComponent(props) {
+    if (props.isBar) {
+      return <div>Bar</div>;
+    }
+
+    return <div>Foo</div>;
+  }
+
+  export default MyComponent;
+  ```
+  ````
+  ```jsx {1,4-6,11} showLineNumbers
+  import React from 'react';
+
+  function MyComponent(props) {
+    if (props.isBar) {
+      return <div>Bar</div>;
+    }
+
+    return <div>Foo</div>;
+  }
+
+  export default MyComponent;
+  ```
+
+## Category 資料夾分類設定
+
+在資料夾中建立 `_category_.(json|yml)`
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+<Tabs>
+<TabItem value="JSON">
+
+```json title="docs/tutorials/_category_.json"
+{
+  "position": 2.5,
+  "label": "Tutorial",
+  "collapsible": true,
+  "collapsed": false,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Tutorial overview"
+  },
+  "customProps": {
+    "description": "This description can be used in the swizzled DocCard"
+  }
+}
+```
+
+</TabItem>
+<TabItem value="YAML">
+
+```yml title="docs/tutorials/_category_.yml"
+position: 2.5 # float position is supported
+label: 'Tutorial'
+collapsible: true # make the category collapsible
+collapsed: false # keep the category open by default
+className: red
+link:
+  type: generated-index
+  title: Tutorial overview
+customProps:
+  description: This description can be used in the swizzled DocCard
+```
+
+</TabItem>
+</Tabs>
+
+## Other
+
+### Custom Theme
+> [styling-layout](https://docusaurus.io/docs/styling-layout)
+
+### 配置 algolia 搜尋功能
+
+> [官方文件](https://docusaurus.io/docs/search)
+
+> [配套主題設定](https://docusaurus.io/docs/api/themes/@docusaurus/theme-search-algolia)
