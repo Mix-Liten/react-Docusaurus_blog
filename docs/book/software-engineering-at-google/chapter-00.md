@@ -2,7 +2,9 @@
 title: '前言'
 ---
 
-在此摘錄閱讀 [`Software Engineering at Google 繁中版`](https://software-engineering-at-google.gh.miniasp.com/#/) 期間，覺得有共鳴的部分內容
+在此摘錄閱讀 [`Software Engineering at Google 繁中版`](https://software-engineering-at-google.gh.miniasp.com/#/) 期間，覺得有共鳴的部分內容。
+
+翻譯品質似乎不是很好，我會適當的參照原文修改摘錄的內容。
 
 :::note p.s.
 實體書初版的出版日期是 2020 年 4 月
