@@ -4,7 +4,9 @@ title: '前言'
 
 在此摘錄閱讀 [`Software Engineering at Google 繁中版`](https://software-engineering-at-google.gh.miniasp.com/#/) 期間，覺得有共鳴的部分內容。
 
-翻譯品質似乎不是很好，我會適當的參照原文修改摘錄的內容。
+不會每個章節、每個段落都有共鳴，尤其是內文中 Google 在介紹為了因應他們世界規模等級的開發整合流程，有興趣可以自行翻閱。
+
+翻譯品質似乎不是很好，我有適當的參照原文修改摘錄的內容。
 
 :::note p.s.
 實體書初版的出版日期是 2020 年 4 月

@@ -37,7 +37,7 @@ Stubbing 意思是指在測試中 hardcode 替換測試中的真實實現；比�
 
 ## Prefer State Testing Over Interaction Testing 推薦狀態測試而非互動測試
 
-```java
+```js
 // State testing
 @Test
 public void sortNumbers() {

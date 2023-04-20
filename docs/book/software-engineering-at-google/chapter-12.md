@@ -28,7 +28,7 @@ description: 單元測試
 
 看不太懂，總之要把重點放在方法跑完之後測試資料是否符合預期
 
-```java
+```js
 // Bad
 @Test
 public void shouldWriteToDatabase() {
@@ -48,7 +48,7 @@ public void shouldCreateUsers() {
 
 一個測試的主體應該包含理解它所需要的所有資訊，而不包含任何無關或分散的資訊。
 
-```java
+```js
 // Bad，一個不完整且雜亂的測試
 @Test
 public void shouldPerformAddition() {
@@ -71,7 +71,7 @@ public void shouldPerformAddition() {
 一個方法裡做不同的事情，若未來該方法做更多事，如果以方法驅動來進行測試，當發生測試失敗時會難以找到真正出錯的原因；同樣的狀況，如果以行為驅動來進行測試，則可明確知道測試失敗的是哪種行為。
 
 
-```java
+```js
 public void displayTransactionResults(User user, Transaction transaction) {
     ui.showMessage("You bought a " + transaction.getItemName());
     if(user.getBalance() < LOW_BALANCE_THRESHOLD) {
@@ -135,7 +135,7 @@ describe("multiplication", function() {
 
 Dry 傾向的測試主體非常簡潔，但它們並不完整：重要的細節被隱藏在輔助方法中，讀者如果不滾動到檔案的完全不同部分就看不到這些方法。那些輔助方法也充滿了邏輯，使它們更難以一目瞭然地驗證。
 
-```java
+```js
 // Dry
 @Test
 public void shouldAllowMultipleUsers() {
@@ -180,7 +180,7 @@ private static void validateForumAndUsers(Forum forum, List < User > users) {
 
 DAMP 傾向的測試有更多的重複，測試體也有點長，但額外的言辭是值得的。每個單獨的測試都更有意義，不離開測試主體就可以完全理解。這些測試的讀者可以確信，這些測試做了他們聲稱要做的事情，並且沒有隱藏任何bug。
 
-```java
+```js
 // DAMP
 @Test
 public void shouldAllowMultipleUsers() {
