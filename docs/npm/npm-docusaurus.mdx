@@ -6,13 +6,21 @@ description: common use docusaurus syntax & tips
 
 > [v2.4.0](https://docusaurus.io/)
 
+## Draft
+
+如果新文檔建立在 `/docs`、`/blog`、`/src/pages` 等會自動產生出頁面的位置，可在檔名前加底線(ex: `_test.md`)，即不會產出對應路徑的頁面
+
+或是在 [Markdown front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter) 寫入 `draft: true`
+
+## TOC (Table Of Contents, 目錄)
+
+預設使用標題標籤 `##`(h2) 和 `###`(h3) 會自動生成文章目錄
+
+如果不想顯示，可在 [Markdown front matter](https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter) 寫入 `hide_table_of_contents: true`
+
 ## Syntax
 
 > [Markdown Features](https://docusaurus.io/docs/markdown-features)
-
-### TOC (Table Of Contents, 目錄)
-
-> 預設使用標題標籤 `##`(h2) 和 `###`(h3) 會自動生成文章目錄
 
 ### Quotes
 
