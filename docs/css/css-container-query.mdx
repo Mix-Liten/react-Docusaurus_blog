@@ -1,0 +1,47 @@
+---
+title: '[CSS] Container Query'
+---
+
+> [CSS Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) @ MDN
+
+## 介紹
+
+以往用的 [Media Query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) 的作用是檢查整個頁面的寬度或高度，符合條件的狀況下渲染客製化的樣式。
+
+這篇講的 [Container Query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) 跟 Media Query 不同的點是，它是檢查容器的寬高。
+
+後面的範例中，`card` 部分的 HTML 是完全一樣的，但是根據它的容器寬度不同，其中一個的樣式被改為橫版。如果沒有 Container Query，可能會需要額外寫一個調整用的 class。
+
+理論上很適合用在框架中被重複使用的元件上，不過畢竟變化點不是在 JS 而是在 CSS，文件沒寫好可能更容易出狀況。
+
+## 語法
+
+`container-type` 可為 `size`(搭配容器高度檢查) 或 `inline-size`(搭配容器寬度檢查)
+
+```css
+/* 一行寫法 */
+/* container: <container-name> / <container-type>; */
+container: card / inline-size;
+
+/* 單屬性設定 */
+container-name: card;
+container-type: inline-size;
+
+/* 條件宣告 */
+/* @container <container-name> {} */
+@container card (width > 400px) {
+  /* something style... */
+}
+```
+
+## 範例
+
+<iframe height="600" style={{width: '100%'}} scrolling="no" title="container query demo" src="https://codepen.io/ianchang-ezit/embed/preview/RweVZZw?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/ianchang-ezit/pen/RweVZZw">
+  container query demo</a> by ianchang (<a href="https://codepen.io/ianchang-ezit">@ianchang-ezit</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+## Reference
+
+- [Media Query | PJCHENder 未整理筆記](https://pjchender.dev/css/css-media-query/)
